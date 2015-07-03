@@ -1,0 +1,20 @@
+# Tasks for beginner programmers
+
+## Make all the Atoms come out bigger
+ * Look in Emitter.Emit, at the Diameter variable.
+ * This generates a random number... think about how it might be working
+ * It makes the Atoms between 4 and 12 pixels
+ * Change Diameter to make them range between 10 and 18 pixels
+ 
+## Make the "emitter" go anywhere the user clicks, not just on a strict line
+ * Look in Workspace_Click and change the second parameter
+ * Think about using MousePosition.Y and see what this does
+ 
+## Make Atoms come out squashed (half their usual height)
+ * Look in Atom.Draw and Atom.UnDrawLast
+ * You can divide the last parameter to DrawEllipse by 2 but you will have to wrap the calculation in CInt() so it might look like CInt(something / 2)
+ 
+## Make Atoms draw a blue "ghost" 50 pixels to their right.
+ * Looks in Atom.Draw
+ * You will need to copy and paste the line which creates the 'particlePen' to create a 'bluePen' and then use this to Draw a second Ellpise
+ * When you run this code, the ghosts form a trail. Why do you think this is?
