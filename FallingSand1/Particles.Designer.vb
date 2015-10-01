@@ -22,11 +22,8 @@ Partial Class Workspace
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.Ticker = New System.Windows.Forms.Timer(Me.components)
         Me.BitrateLabel = New System.Windows.Forms.Label()
         Me.EmitterLabel = New System.Windows.Forms.Label()
-        Me.AtomsLabel = New System.Windows.Forms.Label()
         Me.EmitCycleBox = New System.Windows.Forms.TextBox()
         Me.IntervalBox = New System.Windows.Forms.TextBox()
         Me.BounceLabel = New System.Windows.Forms.Label()
@@ -34,11 +31,6 @@ Partial Class Workspace
         Me.FrictionLabel = New System.Windows.Forms.Label()
         Me.FrictionBox = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
-        '
-        'Ticker
-        '
-        Me.Ticker.Enabled = True
-        Me.Ticker.Interval = 1
         '
         'BitrateLabel
         '
@@ -57,15 +49,6 @@ Partial Class Workspace
         Me.EmitterLabel.Size = New System.Drawing.Size(102, 13)
         Me.EmitterLabel.TabIndex = 3
         Me.EmitterLabel.Text = "Cycles per emission:"
-        '
-        'AtomsLabel
-        '
-        Me.AtomsLabel.AutoSize = True
-        Me.AtomsLabel.Location = New System.Drawing.Point(12, 9)
-        Me.AtomsLabel.Name = "AtomsLabel"
-        Me.AtomsLabel.Size = New System.Drawing.Size(13, 13)
-        Me.AtomsLabel.TabIndex = 4
-        Me.AtomsLabel.Text = "0"
         '
         'EmitCycleBox
         '
@@ -128,7 +111,6 @@ Partial Class Workspace
         Me.Controls.Add(Me.BounceLabel)
         Me.Controls.Add(Me.IntervalBox)
         Me.Controls.Add(Me.EmitCycleBox)
-        Me.Controls.Add(Me.AtomsLabel)
         Me.Controls.Add(Me.EmitterLabel)
         Me.Controls.Add(Me.BitrateLabel)
         Me.Name = "Workspace"
@@ -137,10 +119,8 @@ Partial Class Workspace
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Ticker As System.Windows.Forms.Timer
     Friend WithEvents BitrateLabel As System.Windows.Forms.Label
     Friend WithEvents EmitterLabel As System.Windows.Forms.Label
-    Friend WithEvents AtomsLabel As System.Windows.Forms.Label
     Friend WithEvents EmitCycleBox As System.Windows.Forms.TextBox
     Friend WithEvents IntervalBox As System.Windows.Forms.TextBox
     Friend WithEvents BounceLabel As System.Windows.Forms.Label

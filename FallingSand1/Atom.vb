@@ -80,35 +80,36 @@
         myVelocity.Y += myAcceleration.Y
 
     End Sub
-    Sub Move(ByVal Ground As Integer)
+    Sub Move(ByVal Ground As Integer, RightBound As Integer)
 
-        myLastX = myX
-        myLastY = myY
+        SyncLock Me
+            myX += myVelocity.X
+            myY += myVelocity.Y
 
-        myX += myVelocity.X
-        myY += myVelocity.Y
+            'Stay above ground
+            If Me.IsOnOrBelow(Ground) Then
+                myY = Ground - myDiameter
+            End If
 
-        'Stay above ground
-        If Me.IsOnOrBelow(Ground) Then
-            myY = Ground - myDiameter
-        End If
-
-        'Stay on-screen in x-direction
-        If myX < 0 Then
-            myX = Workspace.Width
-        ElseIf myX > Workspace.Width Then
-            myX = 0
-        End If
+            'Stay on-screen in x-direction
+            If myX < 0 Then
+                myX = RightBound
+            ElseIf myX > RightBound Then
+                myX = 0
+            End If
+        End SyncLock
 
     End Sub
 
     Sub Draw(ByVal gr As Graphics)
 
-        'Erase old
-        Me.UnDrawLast(gr)
+        SyncLock Me
+            'Draw new
+            gr.DrawEllipse(particlePen, Me.X, Me.Y, Me.Diameter, CInt(Me.Diameter))
 
-        'Draw new
-        gr.DrawEllipse(particlePen, Me.X, Me.Y, Me.Diameter, CInt(Me.Diameter))
+            myLastX = myX
+            myLastY = myY
+        End SyncLock
 
     End Sub
     Sub UnDrawLast(ByVal gr As Graphics)
